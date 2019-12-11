@@ -13,9 +13,23 @@ args = parser.parse_args()
 def main():
     
     #Get latest igihe links
+    new_igihe_links = get_latest_igihe_links()
     
-    #TODO: And compare if you already have them
+    new_links = []
 
-    #Scrape the link, Store DATA in txt files
+    #Write them on file
+    with open('DATA/igihelinks.txt', 'r+') as fr:
+        links_in_the_file =  fr.readlines()
+        
+    new_igihe_links =  [ link.strip() for link in new_igihe_links ]
+    links_in_the_file = [ link.strip() for link in links_in_the_file]
 
-    pass
+    for link in new_igihe_links:
+        if link not in links_in_the_file:
+            new_links.append(link)
+
+    with open('DATA/igihelinks.txt', 'a') as fa:
+        for item in new_links:
+            fa.write(item+ '\n')
+
+main()
