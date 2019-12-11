@@ -6,5 +6,7 @@ parser.add_argument('-a', '--articles', help="Number of article to scrape", type
 
 args = parser.parse_args()
 
-if args.site == 'igihe' and args.articles:
-        print('we are about to do it. with {} articles'.format(args.articles))
+
+
+def main():
+    pass
